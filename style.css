@@ -13,7 +13,7 @@ html {
 
 h1 {
     font-size: 36px;
-    color: black;
+    color: #fff;
 }
 
 a {
@@ -22,38 +22,13 @@ a {
     transition: opacity 300ms ease;
 }
 
-.link__hover-effect:after {
-    content: "";
-    position: absolute;
-    height: 3px;
-    width: 0;
-    bottom: -3px;
-    right: 0;
-    transition: all 300ms ease;
-}
-
 li {
     list-style-type: none;
 }
 
-/* LANDING PAGE */
-
-#landing-page {
-    min-height: 40vh;
-    width: 100%;
-    max-width: 1000px;
-    padding: 0 30px;
-    overflow: hidden;
-}
-
-
 /* NAVIGATION BAR */
 
-#site-logo {
-    width: 100px;
-}
-
-.header {
+#landing-page {
     position: fixed;
     top: 0;
     left: 0;
@@ -85,6 +60,10 @@ nav {
     padding: 0 12px;
 }
 
+#site-logo {
+    width: 100px;
+}
+
 .nav__link--list {
     display: flex;
 }
@@ -99,13 +78,25 @@ nav {
     color: #fff;
 }
 
-input {
+/* HEADER */
+
+.header__content {
+    display: flex;
+}
+
+.serch__bar {
     color: rgba(0, 0, 0, .87);
     width: 100%;
     max-width: 800px;
     height: 60px;
     font-size: 20px;
-    padding-left: 20px;
+    margin-top: 80px;
+    border-radius: 50%;
 }
 
-
+.header__content--wrapper {
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    z-index: 2;
+}
