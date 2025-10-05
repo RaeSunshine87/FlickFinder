@@ -29,7 +29,6 @@ li {
 /* NAVIGATION BAR */
 
 #landing-page {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -47,6 +46,7 @@ li {
     left: 0;
     bottom: 0;
     right: 0;
+    z-index: -1;
 }
 
 nav {
@@ -84,7 +84,7 @@ nav {
     display: flex;
 }
 
-.serch__bar {
+.serchbar {
     color: rgba(0, 0, 0, .87);
     width: 100%;
     max-width: 800px;
