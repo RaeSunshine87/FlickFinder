@@ -141,22 +141,25 @@ button {
 .search-bar {
     position: relative;
     display: flex;
+    flex: 1;
+    justify-content: space-between;
     align-items: center;
     margin-top: 16px;
 }
 
 .search-bar__container {
+    position: relative;
     color: rgba(0, 0, 0, .87);
-    width: 100%;
+    width: 50%;
     max-width: 800px;
     height: 60px;
-    font-size: 20px;
-    padding-left: 20px;
+    font-size: 24px;
+    padding: 4px;
 }
 
 .search-bar i {
     position: absolute;
-    left: 12px;
+    right: 26px;
     color: #888;
     pointer-events: none;
 }
@@ -171,14 +174,18 @@ button {
     height: 60px;
 }
 
-.fa-magnifying-glass {
+.search__btn--icon {
     display: inline-block;
     position: relative;
     text-align: center;
-    font-size: inherit;
-    height: 1em;
-    overflow: visible;
-    vertical-align: -0.125em;
+    font-size: 24pt;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.search__btn--icon:hover {
+    transform: scale(1.1);
+    background-color: #ff00ff;
 }
 
 
