@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlickFinder</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="index.js"></script>
     <script src="https://kit.fontawesome.com/2ec225000f.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -54,8 +55,20 @@
             </div>
     </section>
 
-    <section id="results">
-        <div class="results__grid grid"></div>
+    <section id="search__results">
+        <div class="results__container">
+            <h2>
+                Search Results<span class="searchName" style="color:#f8f8f8; opacity: 0.5;"></span>
+            </h2>
+            <div class="search__drop-down">
+            <select name="movieSort" id="movieSort" onchange="sortChange(event)">
+                 <option disabled selected value="">Sort By Year</option>
+                 <option value="newest">Newest to Oldest</option>
+                 <option value="oldest">Oldest to Newest</option>
+            </select>
+            </div>
+        </div>
+        <div class="movies"></div>
     </section>
     
 </body>

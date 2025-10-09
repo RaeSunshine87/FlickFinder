@@ -192,10 +192,49 @@ button {
 
 /* RESULTS */
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 18px;
+#search__results {
+    background-color: rgb(55, 32, 85);
+    width: 100%;
+    min-height: 100vh;
+}
+
+.results__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 32px;
+    color: white;
+}
+
+.search {
+    color: white;
+}
+
+.poster {
+    width: 100%;
+}
+
+.movies {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: white;
+    margin: 12px;
+    padding: 24px;
+    width: 100%;
+}
+
+.movie {
+    padding: 12px;
+    width: calc(100%/3);
+}
+
+#movieSort {
+    border-radius: 24px;
+    color: white;
+    background-color: rgb(97, 9, 240);
+    font-weight: bold;
+    width: 130px;
+    height: 24px;
 }
 
 /*TABLETS AND LARGE PHONES*/
