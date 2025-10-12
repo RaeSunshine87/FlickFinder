@@ -1,54 +1,45 @@
-//GRABBING ELEMENTS
-const moviesWrapper = document.querySelector(".movies");
-const searchName = document.querySelector(".searchName");
 
-//GLOBAL MOVIES VARIABLE
-let currentMovies = []
+const form  = document.getElementById("search-form");
+const input = document.getElementById("search-input");
+const grid  = document.getElementById("results-grid");
 
-//HANDLING THE SEARCH
-function searchChange(event) {
-  renderMovies(event.target.value);
-  searchName.innerHTML;
+
+function spinner() {
+  return `
+    <div class="loading" style="grid-column: 1 / -1;">
+      <i class="fa-solid fa-spinner fa-spin fa-3x loading__icon"></i>
+    </div>
+  `;
 }
 
-//RENDERING MOVIES / CALLING API
-async function renderMovies(searchTerm) {
-  const response = await fetch(
-    `https://www.omdbapi.com/?s=${searchTerm}&apikey=e19fddd4`
-  );
-  const data = await response.json();
-  currentMovies = data.Search
-  displayMovies(currentMovies);
+function renderMessage(html) {
+  grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:1rem">${html}</div>`;
 }
 
-//DISPLAYING MOVIES
-function displayMovies(movieList) {
-  moviesWrapper.innerHTML = movieList
-    // Use this option to reduce number shown  .slice(0, 9) //
-    .map((movie) => {
-      return ` 
-        <div class="movie">
-        <img src=${movie.Poster} class="poster" alt="" />
-        <h2>${movie.Title}</h2>
-        <h4>${movie.Year}<h4>
-        </div>
-        `;
-    })
-    .join("");
+function toCard(item) {
+  const title = item.title ?? "Untitled";
+  const img   = item.images?.jpg?.image_url ?? "";
+  const meta  = [
+    item.type || null,
+    item.episodes ? `${item.episodes} eps` : null,
+    item.year || item.aired?.prop?.from?.year || null
+  ].filter(Boolean).join(" • ");
+
+  return `
+    <article class="movie__card">
+      <img class="movie__card--img" src="${img}" alt="${title}">
+      <div class="card__body">
+        <h3 class="card__title">${title}</h3>
+        <p class="card__meta">${meta}</p>
+      </div>
+    </article>
+  `;
 }
 
-//SORTING MOVIES
-function sortChange(event) {
-    const sortOption = event.target.value
-
-    let sortedMovies = [...currentMovies]
-
-    if (sortOption === "newest") {
-        sortedMovies.sort((a, b) => b.Year - a.Year)
-    }
-    else if (sortOption === "oldest") {
-        sortedMovies.sort((a, b) => a.Year - b.Year)
-    }
-
-    displayMovies(sortedMovies);
+function renderItems(items, emptyMessage = "No results.") {
+  if (!items || items.length === 0) {
+    renderMessage(emptyMessage);
+    return;
+  }
+  grid.innerHTML = items.map(toCard).join("");
 }

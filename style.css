@@ -194,7 +194,8 @@ button {
 /* RESULTS */
 
 #search__results {
-    background-color: rgb(55, 32, 85);
+    margin: 0 auto;
+    background-color: rgb(57, 20, 105);
     width: 100%;
     min-height: 100vh;
 }
@@ -202,7 +203,7 @@ button {
 .results__container {
     display: flex;
     justify-content: space-between;
-    padding: 32px 32px;
+    padding: 32px 80px;
     color: white;
 }
 
@@ -241,6 +242,94 @@ button {
     justify-content: center;
     align-items: center;
 }
+
+/* TEST */
+
+.results { 
+    margin-top: 28px; 
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+
+.card {
+  grid-column: span 4;           /* 3-up on desktop */
+  background: #fff;
+  border: 1px solid #e9eaf0;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(17,24,39,.08); }
+
+.card__img {
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #dfe3ff, #f1f2ff);
+}
+
+.card__body { padding: 12px 14px 16px; }
+.card__title { font-size: 16px; margin: 2px 0 6px; }
+.card__meta { color: #6b7280; font-size: 14px; }
+
+/* Skeleton demo card */
+.skeleton .card__img { background: #eceef7; }
+.skeleton .line {
+  height: 12px; background: #eceef7; border-radius: 6px; margin: 6px 0 8px;
+}
+.skeleton .line.short { width: 60%; }
+
+.results {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.movie__card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.movie__card--img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.movie__card--title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.movie__card--synopsis {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.loading__icon {
+  color: #7c5cff;
+  opacity: 0.9;
+}
+
 
 /*TABLETS AND LARGE PHONES*/
 
