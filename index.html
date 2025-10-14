@@ -1,75 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlickFinder</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="index.js"></script>
-    <script src="https://kit.fontawesome.com/2ec225000f.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlickFinder</title>
+  <script defer src="script.js"></script>
+  <script src="https://kit.fontawesome.com/2ec225000f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <section id="landing-page">
-        <div class="background__image">
-                <img class="header__background--image" src="./Assets/FFBackground.png" alt="Many movie posters">
-        </div>
-        <nav class="nav">
-            <figure>
-                <img class="site-logo" src="./Assets/FlickFinderLogo.png" alt="Flick Finder Logo">
-            </figure>
-            <ul class="nav__link--list">
-                <li class="nav__link">
-                <a href="#" class="
-                nav__link--anchor
-                link__hover-effect
-                ">Home</a>
-                </li>
-                <li class="nav__link">
-                <a href="#" class="
-                nav__link--anchor
-                link__hover-effect
-                ">Find Your Flick</a>
-                </li>
-                <li class="nav__link">
-                <a href="#" class="
-                nav__link--anchor
-                nav__link--primary
-                nav__btn--contact
-                ">Contact</a>
-                </li>
-            </ul>
-        </nav>
-     </section>
-     
-     <section id="header">
-        <div class="header header__content--wrapper">
-            <div class="header__content">
-                <h1 class="title">Pick Your Flick</h1>
-            </div>
-        </div>
-            <div class="search-bar search-bar__container">
-                <input type="text" placeholder="Search by title or keyword">
-                <div class="search__btn--icon">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-            </div>
-    </section>
 
-    <section id="search__results">
-        <div class="results__container">
-            <h2>
-                Search Results<span class="searchName"></span>
-            </h2>
-            <div class="search__drop-down">
-            <select name="movieSort" id="movieSort" onchange="sortChange(event)">
-                 <option disabled selected value="">Sort By Year</option>
-                 <option value="newest">Newest to Oldest</option>
-                 <option value="oldest">Oldest to Newest</option>
-            </select>
-            </div>
-        </div>
-        <div class="movies"></div>
-    </section>
-    
+<body>
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <nav class="hero__nav">
+      <img class="site-logo" src="./Assets/FlickFinderLogo.png" alt="Flick Finder Logo">
+      <ul class="hero__nav-list">
+        <li class="hero__nav-item"><a href="#">Home</a></li>
+        <li class="hero__nav-item"><a href="#">Find Your Flick</a></li>
+        <li class="hero__nav-item"><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero__content">
+      <h2 class="hero__title">Discover Your Next Favorite Flick</h2>
+      <div class="hero__search">
+        <input type="text" id="searchInput" class="hero__search-input" placeholder="Search movies..." />
+        <button id="searchBtn" class="hero__search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- FILTER SECTION -->
+  <section class="filter">
+    <label for="sortFilter" class="filter__label">Sort movies:</label>
+    <select id="sortFilter" class="filter__dropdown">
+      <option value="default">Select...</option>
+      <option value="newest">Newest → Oldest</option>
+      <option value="oldest">Oldest → Newest</option>
+    </select>
+  </section>
+
+  <!-- MOVIE GRID -->
+  <main class="movies">
+    <div id="movieGrid" class="movies__grid"></div>
+  </main>
+
+  <!-- MOVIE MODAL -->
+  <div id="movieModal" class="modal">
+    <div class="modal__content">
+      <span class="modal__close">&times;</span>
+      <img id="modalPoster" class="modal__poster" src="" alt="Movie Poster">
+      <div class="modal__info">
+        <h2 id="modalTitle" class="modal__title"></h2>
+        <p><b>Year:</b> <span id="modalYear"></span></p>
+        <p><b>Genre:</b> <span id="modalGenre"></span></p>
+        <p><b>Rating:</b> <span id="modalRating"></span></p>
+        <p><b>Actors:</b> <span id="modalActors"></span></p>
+        <p><b>Plot:</b> <span id="modalPlot"></span></p>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
