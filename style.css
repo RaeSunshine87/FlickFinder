@@ -26,7 +26,7 @@ body {
   left: 0;
   width: 100%; 
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.05);
   z-index: 0;
 }
 
@@ -88,7 +88,7 @@ body {
 }
 
 .hero__search-input {
-  background: transparent;
+  background: transparentnone;
   border: none;
   color: #000000;
   flex: 1;
